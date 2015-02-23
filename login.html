@@ -1,0 +1,37 @@
+<div id="prompt">
+   <div> 
+<form name='frm1' method=POST>
+    <h2> Please Login</h2>
+    <br>
+    <label>Username<br>
+     <input type='text' id='uname' name='uname' size=20 >
+    </label><br><br>
+    <label>Password<br>
+     <input type='password' id='pass' name='pass' size=20 >
+    </label>
+    <br><br>
+    <input type='submit' class='close' id='submit' value="Log In">
+    <input type='button' class="close" id='cancel' value="Cancel">
+
+    </form> 
+    </div>
+</div>
+<script type='text/javascript'>
+$(document).ready(function() {
+$('#prompt').hide();
+$("#prompt").overlay({
+
+	top: 180,
+    left: 450,
+	expose: {
+		color: '#000',
+		loadSpeed: 200,
+		opacity: 0.7
+	},
+	closeOnClick: false,
+	api: true
+}).load();
+$('#prompt').show(200);
+
+});
+</script>

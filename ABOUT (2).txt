@@ -1,0 +1,46 @@
+######################################################################################################################################
+                                                MIT Student Performance System (MIT SPS)
+######################################################################################################################################
+
+
+####################
+## CODE INFO ##
+####################
+
+    -   Resources      : Directory which contains all used resources including javaScript, CSS style sheets & Images.
+    -   Header.php     : Consists of Common Headers to modularise code
+    -   Body_Open.php  : Consists of instructions common to body beginning (eg interface design code)
+    -   Body_Close.php : Consists of instructions common to body end.       (eg interface design code)
+    -   Footer.php     : Consists of the footer display code.
+    -   Functions.php  : Consists of common php functions such as for login.
+    -   Config.php     : Consists of globaly used variables.
+    -   TemplateA.php   : Basic Framework to be used for interface php files.
+    -   TemplateB.php   : Basic Framework to be used for non-interface php files.
+
+
+####################
+## SCHEMA INFO ##
+####################
+
+    NOTE: 
+        - DEPT ANYWHERE is code like ICT. IN INFO & TEACHER IT IS THE DEPT WHERE THE RESPECTIVE ENTITY BELONGS TO
+            WHILE IN TSMAP IT IS WHICH DEPARTMENT IT IS BEING TAUGHT TO.
+        - 
+    DB:mitsps
+
+    -   LOGIN ( USERID PK VARCHAR(15), PASS VARCHAR(40), TYPE CHAR(2))
+    -   GUARDIAN ( GID PK VARCHAR(15), NAME VARCHAR(40), PHOTO BLOB)   
+    -   STUDENT ( REGNO PK VARCHAR(15), NAME VARCHAR(40), DEPT VARCHAR(10),SEM INT, SEC CHAR(2) , GID FK GUARDIAN, PHOTO BLOB)   
+    -   TEACHER ( EMPCODE PK VARCHAR(15), NAME VARCHAR(40), DEPT VARCHAR(10),PHOTO BLOB)       
+    -   INFO ( SUBCODE PK VARCHAR(10), SUBNAME VARCHAR(20), SUBCREDIT INT, DEPT VARCHAR(10),SEM INT)
+    -   TSMAP (EMPCODE FK TEACHER, SUBCODE FK INFO , SEM INT, SEC CHAR(2),DEPT VARCHAR(10),YR_SEM VARCHAR(10))
+    -   SESS_MARKS ( REGNO FK STUDENT, SESS INT, SEM INT,SUBCODE VARCHAR(50),MARKS int)
+    -   END_SEM_GRADE ( REGNO FK STUDENT, SEM INT, SUBCODE VARCHAR(50),GRADES VARCHAR(3))
+    -   MESSAGES ( MID PK A_I INT, MESSAGE MIDTEXT, GID VARCHAR(15),EMPCODE VARCHAR(15),TYPE bool)
+
+
+####################
+## IMPT. PHP FUNC.##
+####################
+    -   mysql_real_escape_string()  - Used to escape strings to be used as querys to mysql. (Prevent SQL Injection)
+    -   htmlentities()              - Used to remove/decode html elements from forms.( Prevent XSS ) 
